@@ -13,11 +13,18 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <NavBar />
         <main>
-          <Route path/>
+          <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/transactions" element={<Index />} />
+          <Route path="/transactions/new" element={<New />} />
+          <Route path="/transactions/:index" element={<Show />} />
+          <Route path="/transactions/:index/edit" element={<Edit />} />
+          <Route path="*" element={<ErrorPage />} />
+          </Routes>
         </main>
       </Router>
-      
     </div>
   );
 }
