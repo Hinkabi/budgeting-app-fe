@@ -9,6 +9,7 @@ import Show from "./Pages/Show";
 
 import NavBar from "./Compnents/NavBar"
 
+
 function App() {
   return (
     <div className="App">

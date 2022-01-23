@@ -7,7 +7,7 @@ export default function NavBar() {
           <Link to="/transactions">Transactions</Link>
         </h1>
         <button>
-          <Link to="/transaction/new">New Transaction</Link>
+          <Link to="/transactions/new">New Transaction</Link>
         </button>
       </nav>
     );

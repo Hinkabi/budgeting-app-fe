@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-// import Transaction from
+import Transaction from "./Transaction"
 import axios from "axios"
 
 const API_URL = process.env.REACT_APP_API_URL;
+console.log(API_URL)
 
 function Transactions(){
     const [transactions, setTransactions] = useState([]);
@@ -10,7 +11,7 @@ function Transactions(){
        axios.get(API_URL + "/transactions")
        .then((res)=>{
            setTransactions(res.data)
-           console.log(res)
+           console.log(res.data)
        }).catch((err)=>{
            throw err
        });
@@ -20,7 +21,7 @@ function Transactions(){
     return(
         <div className="Transactions">
             {transactions.map((transaction, index)=>{
-                return <p> {transaction.name} </p>
+                return <Transaction key={index} transaction={transaction} index={index} />
             })}
         </div>
     )

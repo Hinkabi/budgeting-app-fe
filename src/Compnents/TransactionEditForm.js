@@ -1,10 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-function TransactionNewForm() {
+function TransactionEditForm() {
+  let { index } = useParams();
+
   const [transaction, setTransaction] = useState({
     date: "",
     name: "",
@@ -18,15 +21,20 @@ function TransactionNewForm() {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
+  useEffect(() => {
+    axios.get(`${API_URL}/transactions/${index}`).then((res) => {
+      setTransaction(res.data);
+    });
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post(`${API_URL}/transactions`, transaction)
-      .then((res) => {
+    axios.put(`${API_URL}/transactions/${index}`, transaction)
+      .then(() => {
         navigate("/transactions");
       })
       .catch((err) => {
-        console.log(err);
+        navigate("not-found");
       });
   };
 
@@ -72,8 +80,11 @@ function TransactionNewForm() {
 
         <input type="submit" />
       </form>
+      <Link to={`/transactions/${index}`}>
+        <button>Back</button>
+      </Link>
     </div>
   );
 }
 
-export default TransactionNewForm;
+export default TransactionEditForm;
