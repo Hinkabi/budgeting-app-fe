@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap"
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -54,7 +55,7 @@ function TransactionNewForm() {
         <label htmlFor="amount">Amount</label>
         <input className="form-control"
           id="amount"
-          value={transaction.amount}
+          value={Number(transaction.amount)}
           type="number"
           onChange={handleTextChange}
           placeholder="amount"
@@ -70,7 +71,7 @@ function TransactionNewForm() {
           required
         />
 
-        <input type="submit" />
+        <Button className="submit-button" value="submit" type="submit">submit</Button>  
       </form>
     </div>
   );

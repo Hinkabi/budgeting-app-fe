@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap"
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -62,7 +63,7 @@ function TransactionEditForm() {
         <label htmlFor="amount">Amount</label>
         <input className="form-control"
           id="amount"
-          value={transaction.amount}
+          value={Number(transaction.amount)}
           type="number"
           onChange={handleTextChange}
           placeholder="amount"
@@ -81,7 +82,7 @@ function TransactionEditForm() {
         <input type="submit" />
       </form>
       <Link to={`/transactions/${index}`}>
-        <button>Back</button>
+      <Button variant="outline-primary">Back</Button>
       </Link>
     </div>
   );

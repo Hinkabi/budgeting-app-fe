@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap"
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -43,16 +44,16 @@ function TransactionShowDetails() {
       <div className="pageNavigation">
         <div>
           <Link to={`/transactions`}>
-            <button>Back</button>
+          <Button variant="outline-primary">back</Button>
           </Link>
         </div>
         <div>
           <Link to={`/transactions/${index}/edit`}>
-            <button>Edit</button>
+            <Button variant="outline-primary"> edit</Button>
           </Link>
         </div>
         <div>
-          <button onClick={handleDelete}>Delete</button>
+          <Button variant="outline-primary" onClick={handleDelete}>Delete</Button>
         </div>
       </div>
     </div>
