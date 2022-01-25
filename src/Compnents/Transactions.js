@@ -11,8 +11,7 @@ console.log(API_URL);
 function Transactions() {
   const [transactions, setTransactions] = useState([]);
   useEffect(() => {
-    axios
-      .get(API_URL + "/transactions")
+    axios.get(API_URL + "/transactions")
       .then((res) => {
         setTransactions(res.data);
         console.log(res.data);
