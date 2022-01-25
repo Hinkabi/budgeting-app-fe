@@ -22,12 +22,6 @@ function Transactions() {
       });
   }, []);
 
-  
-
-  // const [color,setColor] = useState("")
-  // const changeColor = (()=>{
-  //   if(transact)
-  // })
 
   var sumOfAmounts = transactions.reduce((sum, currentVal) => {
       return sum + currentVal.amount;
@@ -52,7 +46,7 @@ function Transactions() {
             <tr key={index}>
             <td>{date}</td>
             <td>
-            <Link to={`${index}`}>{from}</Link>
+            <Link to={`/transactions/${index}`}>{from}</Link>
             </td>
             <td
             style={amount > 0 ? {color:"green"}: {color: "red"}}
