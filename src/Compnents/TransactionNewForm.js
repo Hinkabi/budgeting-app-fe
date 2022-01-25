@@ -19,6 +19,10 @@ function TransactionNewForm() {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
+  const handleNumberChange = (event) => {
+    setTransaction({ ...transaction, [event.target.id]: Number(event.target.value )});
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -55,9 +59,9 @@ function TransactionNewForm() {
         <label htmlFor="amount">Amount</label>
         <input className="form-control"
           id="amount"
-          value={Number(transaction.amount)}
+          value={transaction.amount}
           type="number"
-          onChange={handleTextChange}
+          onChange={handleNumberChange}
           placeholder="amount"
           required
         />

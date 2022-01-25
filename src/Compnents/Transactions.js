@@ -4,6 +4,7 @@ import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+
 const API_URL = process.env.REACT_APP_API_URL;
 console.log(API_URL);
 
@@ -21,6 +22,13 @@ function Transactions() {
       });
   }, []);
 
+  
+
+  // const [color,setColor] = useState("")
+  // const changeColor = (()=>{
+  //   if(transact)
+  // })
+
   var sumOfAmounts = transactions.reduce((sum, currentVal) => {
       return sum + currentVal.amount;
   }, 0);
@@ -28,7 +36,7 @@ function Transactions() {
 
   return (
     <div className="Transactions">
-        <h1>Total Budget: {sumOfAmounts}</h1>
+        <h1 style={{textAlign: "center"}}>Total Budget:${sumOfAmounts}</h1>
       <ReactBootStrap.Table striped bordered hover>
         <thead>
           <tr>
@@ -46,7 +54,9 @@ function Transactions() {
             <td>
             <Link to={`${index}`}>{from}</Link>
             </td>
-            <td>{amount}</td>
+            <td
+            style={amount > 0 ? {color:"green"}: {color: "red"}}
+            >{amount}</td>
           </tr>
             );
           })}

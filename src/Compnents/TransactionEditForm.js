@@ -22,6 +22,10 @@ function TransactionEditForm() {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
+  const handleNumberChange = (event) => {
+    setTransaction({ ...transaction, [event.target.id]: Number(event.target.value )});
+  };
+
   useEffect(() => {
     axios.get(`${API_URL}/transactions/${index}`).then((res) => {
       setTransaction(res.data);
@@ -63,9 +67,9 @@ function TransactionEditForm() {
         <label htmlFor="amount">Amount</label>
         <input className="form-control"
           id="amount"
-          value={Number(transaction.amount)}
+          value={transaction.amount}
           type="number"
-          onChange={handleTextChange}
+          onChange={handleNumberChange}
           placeholder="amount"
           required
         />
