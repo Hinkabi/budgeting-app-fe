@@ -36,7 +36,7 @@ function Transactions() {
 
   return (
     <div className="Transactions">
-        <h1 style={{textAlign: "center"}}>Total Budget:${sumOfAmounts}</h1>
+        <h2 style={{textAlign: "center"}}>Total Budget:${sumOfAmounts}</h2>
       <ReactBootStrap.Table striped bordered hover>
         <thead>
           <tr>

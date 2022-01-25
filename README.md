@@ -1,14 +1,14 @@
 ## Backend GitHub Link
-https://github.com/samshapland22/budget-app-project-be
+https://github.com/Hinkabi/budgeting-app-be
 
 ## Frontend GitHub Link
-https://github.com/samshapland22/budget-app-fe/edit/main/README.md
+https://github.com/Hinkabi/budgeting-app-fe
 
 ## Deployed Backend Link
-https://pure-bastion-48512.herokuapp.com/
+https://hi-budget-be.herokuapp.com/
 
 ## Deployed Frontend Link
-https://gracious-jones-d4e419.netlify.app/
+https://hi-budget-app-fe.netlify.app/
 
 
 

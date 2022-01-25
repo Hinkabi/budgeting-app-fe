@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap"
+import { Button, ListGroup } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -35,25 +35,33 @@ function TransactionShowDetails() {
 
   return (
     <div>
-      <h3>{transaction.date}</h3>
+      <ListGroup variant="flush">
+        <ListGroup.Item>Date: {transaction.date}</ListGroup.Item>
+        <ListGroup.Item>Name: {transaction.name}</ListGroup.Item>
+        <ListGroup.Item>Amount: {transaction.amount}</ListGroup.Item>
+        <ListGroup.Item>From: {transaction.from}</ListGroup.Item>
+      </ListGroup>
+      {/* <h3>{transaction.date}</h3>
       <p>{transaction.name}</p>
       <p>{transaction.amount}</p>
       <p>{transaction.from}</p>
-      <p>{transaction.category}</p>
+      <p>{transaction.category}</p> */}
 
       <div className="pageNavigation">
         <div>
           <Link to={`/transactions`}>
-          <Button variant="outline-primary">back</Button>
+            <Button variant="outline-primary">Back</Button>
           </Link>
         </div>
         <div>
           <Link to={`/transactions/${index}/edit`}>
-            <Button variant="outline-primary"> edit</Button>
+            <Button variant="outline-primary"> Edit</Button>
           </Link>
         </div>
         <div>
-          <Button variant="outline-primary" onClick={handleDelete}>Delete</Button>
+          <Button variant="outline-primary" onClick={handleDelete}>
+            Delete
+          </Button>
         </div>
       </div>
     </div>
